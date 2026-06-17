@@ -1,6 +1,6 @@
 package Exceptions;
 
-public class EmptySaleException extends Exception {
+public class EmptySaleException extends RuntimeException {
 
     public EmptySaleException() {
         super("Empty sale error");

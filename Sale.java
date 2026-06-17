@@ -13,7 +13,7 @@ public class Sale {
         totalPrice = 0;
     }
 
-    public void calculateTotal() throws EmptySaleException {
+    public void calculateTotal()  {
 
         if (products.isEmpty()) {
             throw new EmptySaleException();
