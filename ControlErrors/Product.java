@@ -1,4 +1,4 @@
-package Exceptions;
+package Exceptions.ControlErrors;
 
 public class Product {
 
