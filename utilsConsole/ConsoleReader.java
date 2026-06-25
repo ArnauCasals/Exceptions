@@ -11,12 +11,12 @@ public class ConsoleReader {
             try {
                 System.out.print(message);
                 int value = scanner.nextInt();
-                scanner.nextLine(); // neteja buffer
+                scanner.nextLine();
                 return value;
 
             } catch (InputMismatchException exception) {
                 System.out.println("Invalid integer. Please enter a whole number.");
-                scanner.nextLine(); // elimina l'entrada incorrecta
+                scanner.nextLine();
             }
         }
     }
@@ -26,12 +26,12 @@ public class ConsoleReader {
             try {
                 System.out.print(message);
                 double value = scanner.nextDouble();
-                scanner.nextLine(); // neteja buffer
+                scanner.nextLine();
                 return value;
 
             } catch (InputMismatchException exception) {
                 System.out.println("Invalid double. Use a decimal number.");
-                scanner.nextLine(); // elimina l'entrada incorrecta
+                scanner.nextLine();
             }
         }
     }

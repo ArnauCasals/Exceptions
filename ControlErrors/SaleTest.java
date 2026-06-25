@@ -7,16 +7,14 @@ public class SaleTest {
 
     public static void run() {
 
-
         try {
             Sale emptySale = new Sale();
 
-            emptySale.calculateTotal(); // aquí ha de saltar l'excepció
+            emptySale.calculateTotal();
 
         } catch (EmptySaleException emptySaleException) {
             System.out.println("Error: " + emptySaleException.getMessage());
         }
-
 
         try {
             List<String> list = new ArrayList<>();

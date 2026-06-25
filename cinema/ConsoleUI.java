@@ -47,8 +47,6 @@ public class ConsoleUI {
         } while (option != 0);
     }
 
-    // ---------- INPUT METHODS ----------
-
     private int readInt(String message) {
         while (true) {
             try {
@@ -67,8 +65,6 @@ public class ConsoleUI {
         System.out.print(message);
         return scanner.nextLine();
     }
-
-    // ---------- ACTIONS ----------
 
     private void showAllSeats() {
         System.out.println(service.getAllSeats());

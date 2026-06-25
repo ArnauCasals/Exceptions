@@ -34,31 +34,25 @@ public class ReservationService {
     }
     public void reserveSeat(int row, int seat, String name) {
 
-        // 1. Validar posició
         validateSeatPosition(row, seat);
 
-        // 2. Validar nom
         if (name == null || name.isBlank() || containsNumber(name)) {
             throw new InvalidPersonNameException();
         }
 
-        // 3. Comprovar si ja està ocupat
         for (Seat s : seats) {
             if (s.getRow() == row && s.getSeat() == seat) {
                 throw new SeatAlreadyTakenException();
             }
         }
 
-        // 4. Afegir la reserva
         Seat newSeat = new Seat(row, seat, name);
         seats.add(newSeat);
     }
     public void cancelSeat(int row, int seat) {
 
-        // 1. Validar posició
         validateSeatPosition(row, seat);
 
-        // 2. Buscar la butaca
         Seat toRemove = null;
 
         for (Seat s : seats) {
@@ -73,7 +67,6 @@ public class ReservationService {
             return;
         }
 
-        // 3. Si no existeix
         throw new SeatAlreadyEmptyException();
     }
     public List<Seat> getAllSeats() {
@@ -88,22 +81,17 @@ public class ReservationService {
                 result.add(s);
             }
         }
-
         return result;
     }
     public void cancelAllByPerson(String name) {
 
-        // 1. Validar nom
         if (name == null || name.isBlank() || containsNumber(name)) {
             throw new InvalidPersonNameException();
         }
 
-        // 2. Eliminar totes les reserves d'aquesta persona
         boolean removed = seats.removeIf(
-                s -> s.getPersonName().equalsIgnoreCase(name)
-        );
+                s -> s.getPersonName().equalsIgnoreCase(name));
 
-        // 3. Si no s'ha eliminat res
         if (!removed) {
             throw new SeatAlreadyEmptyException();
         }
